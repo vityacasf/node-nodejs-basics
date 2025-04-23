@@ -6,13 +6,12 @@ const create = async () => {
     await access("./files/fresh.txt");
     console.log("FS operation failed"); 
     } catch{
-
+        
     }
     open("./files/fresh.txt", "w", (err) => {
         if(err) throw err();
         console.log("file created");
     })
-
 };
 
 await create();
