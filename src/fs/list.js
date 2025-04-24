@@ -1,5 +1,7 @@
+import * as fs from "node:fs"
+
 const list = async () => {
-    // Write your code here 
+    
 };
 
 await list();
