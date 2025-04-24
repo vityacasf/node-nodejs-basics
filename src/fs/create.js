@@ -1,17 +1,12 @@
-import { open } from 'node:fs';
-import { access } from 'node:fs/promises';
+import * as fs from "node:fs";
 
 const create = async () => {
-    try{
-    await access("./files/fresh.txt");
-    console.log("FS operation failed"); 
-    } catch{
-        
+    if (fs.existsSync("./files/fresh.txt")) {
+        throw new Error('FS operation failed');
     }
-    open("./files/fresh.txt", "w", (err) => {
-        if(err) throw err();
-        console.log("file created");
-    })
+    fs.writeFileSync("./files/fresh.txt", "I am fresh and young", 'utf8');
+    console.log(`Файл успешно создан.`);
+
 };
 
 await create();
